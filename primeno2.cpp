@@ -26,4 +26,4 @@ int main(){
 }
 
 
-// Time complexity is O(x)
+// Time complexity is O(n)
