@@ -1,0 +1,1 @@
+<Contents of gcd2.cpp>
