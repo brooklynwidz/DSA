@@ -1,43 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    vector<int> nums = {1,2,2,4};
-    int k =5;
-    int j = 0;
-    int next = 1; 
-    while (k)
-    {
-        if (nums[j] + k > nums[next])
-        {
-                for(int i = 0; i<(nums[j]+5-nums[next]);i++){
-                    if (nums[j] != nums[next])
-                    {
-                        nums[j]++;
-                        k--;
-                        next++;
-                    }
-                }
+int func(vector<int>& nums, int k){
+    sort(nums.begin(), nums.end());
+    int l =0, r = 0, res =0, total = 0;
+    while (r<nums.size()){
+        total+=nums[r];
+        while ((long long) nums[r]*(r-l+1)>total+k){
+            total-=nums[l];
+            l+=1;
         }
+        res = max(res,r-l+1);
+        r+=1;
     }
 
-    unordered_map<int, int> mp;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        mp[nums[i]]++;
-    }
+    return res;
+} 
 
-    int max = 0;
-    for (int i = 0; i < mp.size(); i++)
-    {
-        if (nums[i] < nums[i + 1])
-        {
-            max = nums[i + 1];
-        }
-        else
-        {
-            max = nums[i];
-        }
-    }
+
+int main(){
+
+    vector<int> vec ={1,2,4,2,1};
+    cout << "max freq: " << func(vec,5);
 }
