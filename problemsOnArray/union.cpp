@@ -82,16 +82,4 @@ int main(){
     vector<int> arr1 = {1,1,2,2,3,4,5,5};
     vector<int> arr2 = {1,2,3,4,5,5,6,6,7,8,9};
     vector<int> un;
-
-    vector<int> arr = s1.myfunc(arr1,arr2);
-    int n4 = arr.size();
-    
-    // int n3 = un.size();
-    // for (int i = 0; i<n4; i++ ){
-    //     cout << un[i] << "\n";
-    // }
-
-    for (int x : arr){
-        cout << x << " \n";
-    }
 }
