@@ -45,7 +45,7 @@ class Solution {
             int n2 = b.size();
             vector<int> unionArr;
             while (i < n1 && j < n2){
-                if (a[i] < b[j]){
+                if (a[i] <= b[j]){
                     if (unionArr.size() == 0 || unionArr.back() != a[i]){
                         unionArr.push_back(a[i]);
                     }
