@@ -49,16 +49,39 @@ class Solution {
             }
             return interArr;
         }
+
+
+        vector<int> optimal(vector<int> &a, vector<int> &b){
+            int i = 0;
+            int j = 0;
+            int n1 = a.size();
+            int n2 = b.size();
+            vector<int> inter;
+            while (i < n1 && j < n2){
+                if(a[i] < b[j]){
+                    i++;
+                }
+                else if (b[j] < a[i]){
+                    j++;
+                }
+                else {
+                    inter.push_back(a[i]);
+                    i++;
+                    j++;
+                }
+            }
+            return inter;
+        }
 };
 
 
 int main(){
     Solution s1;
-    // vector<int> a = {1,2,2,3,3,4,5,6};
-    vector<int> b = {2,3,100};
-    vector<int> a = {1,2,50,100};
-    // vector<int> b = {2,3,3,5,6,6,7};
-    vector<int> arr = s1.mymethod(a,b);
+    vector<int> a = {1,2,2,3,3,4,5,6};
+    // vector<int> b = {2,3,100};
+    // vector<int> a = {1,2,50,100};
+    vector<int> b = {2,3,3,5,6,6,7};
+    vector<int> arr = s1.optimal(a,b);
 
     for (int x: arr){
         cout << x  << "\n";
