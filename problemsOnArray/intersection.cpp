@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
     public:
-        vector<int> mymethod(vector<int> a, vector<int> b){
+        vector<int> brutesoln(vector<int> a, vector<int> b){
             vector<int> interArr;
             int i = 0;
             int j = 0;
