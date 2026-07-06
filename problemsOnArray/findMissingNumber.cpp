@@ -14,11 +14,25 @@ class Solution {
                 }
             }
         }
+
+        int brute(vector<int> &arr, int N){
+            int n = arr.size();
+            for (int i = 1; i <= N; i++){
+                int flag = 0;
+                for (int j = 0; j < n; j++){
+                    if (arr[j] == i){
+                        flag = 1;
+                        break;
+                    }
+                }
+                if (flag == 0) return i;
+            }
+        }
 };
 
 
 int main(){
-    vector<int> arr = {1,2,4,5};
+    vector<int> arr = {1,2,5,4};
     Solution s1;
-    cout << s1.mysol(arr);
+    cout << s1.brute(arr,5);
 }
