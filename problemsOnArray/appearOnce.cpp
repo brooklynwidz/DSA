@@ -39,10 +39,25 @@ class Solution {
             return 0;
         }
 
+        int better1(vector<int> &arr){
+            int n = arr.size();
+            unordered_map<int,int> mp;
+            for (int i = 0; i<n; i++){
+                mp[arr[i]]++;
+            }
+
+            for (auto it: mp){
+                if (it.second == 1){
+                    return it.first;
+                }
+            }
+            return 0;
+        }
+
 };
 
 int main(){
     Solution s1;
     vector<int> arr = {1,1,2,3,3,4,4};
-    cout << s1.better(arr);
+    cout << s1.better1(arr);
 }
