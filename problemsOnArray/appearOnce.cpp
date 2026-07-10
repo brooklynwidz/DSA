@@ -26,12 +26,23 @@ class Solution {
         int better(vector<int> &arr){
             int n = arr.size();
             //here i will not use array instead i will use map so that time complexity as well as space compleaxity decreases
+            map<int,int> mp ;
+            for (int i = 0; i < n; i++){
+                mp[arr[i]]++;
+            }
+
+            for (auto it: mp){
+                if (it.second == 1){
+                    return it.first;
+                }
+            }
+            return 0;
         }
 
 };
 
 int main(){
     Solution s1;
-    vector<int> arr = {1,1,2,2,3,3,4,4};
-    cout << s1.brute(arr);
+    vector<int> arr = {1,1,2,3,3,4,4};
+    cout << s1.better(arr);
 }
