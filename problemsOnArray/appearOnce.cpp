@@ -23,7 +23,7 @@ class Solution {
             return 0;
         }
 
-        int better(vector<int> &arr){
+        int better(vector<int> &arr){ //TC = O(nlogm + m) => O(nlogm) SC = O(m)
             int n = arr.size();
             //here i will not use array instead i will use map so that time complexity as well as space compleaxity decreases
             map<int,int> mp ;
@@ -39,7 +39,7 @@ class Solution {
             return 0;
         }
 
-        int better1(vector<int> &arr){
+        int better1(vector<int> &arr){ // TC = O(m+n) => O(n)   SC = O(m)
             int n = arr.size();
             unordered_map<int,int> mp;
             for (int i = 0; i<n; i++){
@@ -53,6 +53,19 @@ class Solution {
             }
             return 0;
         }
+
+        
+        int optimal(vector<int> &arr){ //TC = O(n) SC = O(1)
+            int XOR = 0;
+            int  n = arr.size();
+            for (int i = 0; i < n; i++){
+                XOR = XOR^arr[i];
+            }
+            return XOR;
+
+
+        }
+
 
 };
 
