@@ -13,11 +13,13 @@ class Solution {
                 }
                 sum = sum + arr[j];
                 if (sum >= k){
-                    length = j - i + 1;
+                    if ((j-i+1) > length){
+                        length = j - i + 1;
+                    }
                     i++;
                     j=i;
+                    sum = 0;
                 }
-
                 j++;
             }
 
