@@ -1,3 +1,6 @@
+// array should contain only positive integer
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -40,13 +43,30 @@ class Solution {
                 return length;
             }
         }
+
+        int brute(vector<int> &arr, int k){
+            int n = arr.size();
+            int length = 0;
+            for (int i = 0; i<n; i++){
+                int sum = 0;
+                for (int j = i; j<n; j++){
+                    for (int x = i; x<=j; x++){
+                        sum+=arr[x];
+                    }
+                    if (sum == k && length<j-i+1){
+                        length = j-i+1;
+                    }
+                }
+            }
+            return length;
+        }
 };
 
 
 int main(){
     Solution s1;
     // vector<int> arr = {10,5,2,7,1,9};
-    vector<int> arr = {1,2,1,1,1};
+    vector<int> arr = {3,1,2,4,3};
     int k = 3;
-    cout << s1.mySol(arr,k);
+    cout << s1.brute(arr,k);
 }
