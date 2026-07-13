@@ -60,13 +60,34 @@ class Solution {
             }
             return length;
         }
+
+        int better(vector<int>&arr, int k){
+            map<int,int> mp;
+            int sum = 0;
+            int maxLen = 0;
+            for (int i = 0; i<arr.size(); i++){
+                sum+=arr[i];
+                if (sum == k){
+                    maxLen = max(maxLen, i+1);
+                }
+                int remaining = sum - k;
+                if (mp.find(remaining) != mp.end()){
+                    int len = i - mp[remaining];
+                    maxLen = max(maxLen,len);
+                }
+                if (mp.find(sum) == mp.end()){
+                    mp[sum] = i;
+                }
+            }
+            return maxLen;
+        }
 };
 
 
 int main(){
     Solution s1;
     // vector<int> arr = {10,5,2,7,1,9};
-    vector<int> arr = {3,1,2,4,3};
+    vector<int> arr = {3,1,2,4,3,0,0};
     int k = 3;
-    cout << s1.brute(arr,k);
+    cout << s1.better(arr,k);
 }
