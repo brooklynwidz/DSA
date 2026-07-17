@@ -10,6 +10,15 @@ void f(int i,int a[],int n){
 
 }
 
+
+// m#2
+
+void ff(int i,int a[],int n){
+    if(i>=(n/2)){return;}
+    swap(a[i],a[n-i-1]);
+    f(i+1,a,n);
+}
+
 int main(){
     int n;
     cin>>n;
