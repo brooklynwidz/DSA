@@ -24,13 +24,34 @@ class Solution {
 
             return arr;
         }
+
+        //dutch flag algorithm
+        vector<int> optimal(vector<int> arr){
+            int n = arr.size();
+            int low = 0, mid = 0,high = n-1;
+            for (int i = 0; i<n; i++){
+                if (arr[mid] == 0){
+                    swap(arr[low],arr[mid]);
+                    mid++;
+                    low++;
+                }
+                else if (arr[mid] == 1){
+                    mid++;
+                }
+                else {
+                    swap(arr[mid],arr[high]);
+                    high--;
+                }
+            }
+            return arr;
+        }
 };
 
 
 int main(){
     vector<int> arr = {0,1,2,1,2,0,2,0,1};
     Solution s1;
-    vector<int> res = s1.better(arr);
+    vector<int> res = s1.optimal(arr);
     for (int i = 0; i < res.size(); i++){
         cout << res[i] << "\n";
     }
