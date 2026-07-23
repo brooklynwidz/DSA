@@ -19,10 +19,25 @@ class Solution{
             }
             return -1;
         }
+
+        int better(vector<int> &arr){
+            map<int,int> mp;
+            int n = arr.size();
+            for (int i = 0; i<n; i++){
+                mp[arr[i]]++;
+            }
+
+            for (auto it: mp){
+                if (it.second > n/2){
+                    return it.first;
+                }
+            }
+            return -1;
+        }
 };
 
 int main(){
-    vector<int> arr = {2,2,1,2,3,2,2};
+    vector<int> arr = {2,2,1,2,3,2,2,3,3,3,3,3,3};
     Solution s1;
-    cout << s1.brute(arr);
+    cout << s1.better(arr);
 }
