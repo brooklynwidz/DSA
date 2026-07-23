@@ -34,10 +34,29 @@ class Solution{
             }
             return -1;
         }
+        int optimal(vector<int> &arr){
+            int n = arr.size();
+            int element;
+            int count = 0;
+            for (int i = 0; i < n; i++){
+                if (count == 0){
+                    element = arr[i];
+                }
+                if (arr[i] == element){
+                    count++;
+                }
+                else{
+                    count--;
+                }
+
+            }
+
+            return element;
+        }
 };
 
 int main(){
     vector<int> arr = {2,2,1,2,3,2,2,3,3,3,3,3,3};
     Solution s1;
-    cout << s1.better(arr);
+    cout << s1.optimal(arr);
 }
