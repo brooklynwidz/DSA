@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution{
+    public:
+        int brute(vector<int> &arr){
+            int n = arr.size();
+            int x = n/2;
+            for (int i = 0; i < n; i++){
+                int count = 0;
+                for (int j = 0; j < n; j++){
+                    if (arr[j] == arr[i]){
+                        count++;
+                    }
+                }
+                if (count > x){
+                    return arr[i];
+                }
+            }
+            return -1;
+        }
+};
+
+int main(){
+    vector<int> arr = {2,2,1,2,3,2,2};
+    Solution s1;
+    cout << s1.brute(arr);
+}
