@@ -16,8 +16,20 @@ class Solution {
                 }
             }
             return maxSum;
-        }   
+        } 
+          
+        int better(vector<int> &arr){
+            int maxSum = INT_MIN;
+            int n = arr.size();
 
+            for (int i = 0; i < n; i++){
+                int sum = 0;
+                for (int j = i; j < n; j++){
+                    sum+=arr[i];
+                    maxSum = max(sum,maxSum);
+                }
+            }
+        }        
 };
 
 
