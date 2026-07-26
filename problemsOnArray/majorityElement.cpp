@@ -34,6 +34,8 @@ class Solution{
             }
             return -1;
         }
+
+        //moores voting algorithm
         int optimal(vector<int> &arr){
             int n = arr.size();
             int element;
