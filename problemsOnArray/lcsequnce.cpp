@@ -57,13 +57,38 @@ class Solution{
 
 
         }
+
+        int optimal(vector<int> &arr){
+            int n = arr.size();
+            unordered_set<int> st;
+            int cnt = 0;
+            int longest = 0;
+            for (int i =0; i<n; i++){
+                st.insert(arr[i]);
+            }
+            
+            for (auto it : st){
+                if (st.find(it-1) == st.end()){
+                    cnt = 1;
+                    while(st.find(it+1) != st.end()){
+                        it += 1;
+                        cnt+=1;
+                    }
+                    longest = max(longest,cnt);
+                }
+
+            }
+
+            return longest;
+
+        }
 };
 
 int main(){
     Solution s1;
     // vector<int> arr = {1,5,4,3,2,135,21,43};
-    vector<int> arr = {1,2,34,1,2,3,1,2,3,1,2,3,1,2,3,101,101,104,102,102,103};
-    cout << s1.better(arr);
+    vector<int> arr = {1,2,34,1,2,3,1,2,3,1,2,3,1,2,3,101,101,104,102,102,103,4,5,6};
+    cout << s1.optimal(arr);
 
 
 }
