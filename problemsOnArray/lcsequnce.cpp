@@ -16,7 +16,7 @@ class Solution{
         int brute(vector<int> &arr){
             int n = arr.size();
             int cnt = 0;
-            int longest = 0;
+            int longest = 1;
             int x;
             for (int i = 0; i<n; i++){ 
                 x = arr[i];
@@ -33,12 +33,37 @@ class Solution{
 
             return longest;
         }
+
+        int better(vector<int> &arr){
+            int n = arr.size();
+            sort(arr.begin(), arr.end());
+            int cnt = 0;
+            int longest = 0;
+            int lastSmallest = INT_MIN;
+            for (int i = 0; i<n; i++){
+                if (arr[i]-1 == lastSmallest){
+                    cnt+=1;
+                    lastSmallest = arr[i] ;   
+                }
+                else if (arr[i] != lastSmallest){
+                    cnt = 1;
+                    lastSmallest=arr[i];
+                }
+                longest = max(longest,cnt);
+                
+            }
+
+            return longest;
+
+
+        }
 };
 
 int main(){
-
     Solution s1;
-    vector<int> arr = {1,5,4,3,2,135,21,43};
-    cout << s1.brute(arr);
+    // vector<int> arr = {1,5,4,3,2,135,21,43};
+    vector<int> arr = {1,2,34,1,2,3,1,2,3,1,2,3,1,2,3,101,101,104,102,102,103};
+    cout << s1.better(arr);
+
 
 }
